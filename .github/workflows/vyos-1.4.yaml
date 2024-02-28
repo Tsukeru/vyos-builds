@@ -13,17 +13,10 @@ env:
   ARCHITECTURE: amd64
   BUILD_BY: vyos-build-action@github.com
   BUILD_TYPE: release
+  VERSION: 1.4.0-epa1
   DEBIAN_MIRROR: http://ftp.us.debian.org/debian/
 
 jobs:
-  version:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set env
-        run: echo "VERSION=${GITHUB_REF_NAME//v}" >> $GITHUB_ENV
-      - name: Show version
-        run: echo Version $VERSION
-
   build:
     needs: version
     runs-on: ubuntu-latest
