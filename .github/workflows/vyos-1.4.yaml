@@ -49,10 +49,16 @@ jobs:
       with:
         name: vyos-${{ env.VERSION }}-${{ env.ARCHITECTURE }}-iso
 
-    - name: Tag
-      run: |
-        git tag "$env:VERSION"
-        git push origin "$env:VERSION"
+    - name: Create tag
+      uses: actions/github-script@v5
+      with:
+        script: |
+          github.rest.git.createRef({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            ref: 'refs/tags/${{ env.VERSION }}',
+            sha: context.sha
+          })
 
     - name: Release
       uses: softprops/action-gh-release@v1
