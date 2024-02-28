@@ -10,7 +10,6 @@ env:
   ARCHITECTURE: amd64
   BUILD_BY: vyos-build-action@github.com
   BUILD_TYPE: release
-  VERSION: 1.4.0-epa1
   DEBIAN_MIRROR: http://ftp.us.debian.org/debian/
 
 jobs:
