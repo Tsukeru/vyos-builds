@@ -46,17 +46,6 @@ jobs:
       with:
         name: vyos-${{ github.ref_name }}-${{ env.ARCHITECTURE }}-iso
 
-    - name: Create tag
-      uses: actions/github-script@v5
-      with:
-        script: |
-          github.rest.git.createRef({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            ref: 'refs/tags/${{ github.ref_name }}',
-            sha: context.sha
-          })
-
     - name: Release
       uses: softprops/action-gh-release@v1
       env:
