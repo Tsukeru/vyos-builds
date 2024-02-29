@@ -51,8 +51,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: VyOS v${{ env.BUILD_VERSION }}
-        body: VyOS v${{ env.BUILD_VERSION }}
+        name: VyOS ${{ github.ref_name }}
+        body: VyOS ${{ github.ref_name }}
         draft: false
         prerelease: false
         files: |
