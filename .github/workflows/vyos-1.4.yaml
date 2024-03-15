@@ -26,6 +26,7 @@ jobs:
       - name: Build ISO
         working-directory: ./vyos-build
         run: |
+          sudo make clean
           sudo ./build-vyos-image iso --architecture $ARCHITECTURE --build-by $BUILD_BY --build-type $BUILD_TYPE --version $GITHUB_REF_NAME
 
       - name: Upload artifact
